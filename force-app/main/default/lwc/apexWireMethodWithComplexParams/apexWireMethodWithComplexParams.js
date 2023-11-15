@@ -12,8 +12,7 @@ export default class ApexWireMethodWithComplexParams extends LightningElement {
         someList: []
     };
 
-    @wire(checkApexTypes, { wrapper: '$parameterObject' })
-    apexResponse;
+
 
     handleStringChange(event) {
         this.parameterObject = {
@@ -39,4 +38,7 @@ export default class ApexWireMethodWithComplexParams extends LightningElement {
             someList
         };
     }
+
+    @wire(checkApexTypes, { wrapper: '$parameterObject' })
+    apexResponse;
 }
