@@ -14,6 +14,7 @@ public with sharing class ApexTypesController {
             '" as Integer value. The list contained ' +
             wrapper.someList.size() +
             ' items.';
+            system.debug('response????????????'+response);
         return response;
     }
 }
