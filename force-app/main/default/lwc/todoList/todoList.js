@@ -20,6 +20,13 @@ export default class TodoList extends LightningElement {
         this.filterTodos();
     }
 
+   
+
+    handleCheckboxChange(event) {
+        this.priorityFilter = event.target.checked;
+        this.filteredTodos();
+    }
+
     filterTodos() {
         if (this.priorityFilter) {
             this.filteredTodos = this._todos.filter(
@@ -28,10 +35,5 @@ export default class TodoList extends LightningElement {
         } else {
             this.filteredTodos = this._todos;
         }
-    }
-
-    handleCheckboxChange(event) {
-        this.priorityFilter = event.target.checked;
-        this.filteredTodos();
     }
 }
