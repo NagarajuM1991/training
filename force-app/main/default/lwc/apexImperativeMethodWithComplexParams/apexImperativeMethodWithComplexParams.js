@@ -3,9 +3,9 @@ import checkApexTypes from '@salesforce/apex/ApexTypesController.checkApexTypes'
 
 
 export default class ApexImperativeMethodWithComplexParams extends LightningElement {
-    @track stringValue = 'Some string';
-    @track numberValue = 50;
-    @track listItemValue = 4;
+     stringValue = 'Some string';
+     numberValue = 50;
+     listItemValue = 4;
     message;
     error;
     
