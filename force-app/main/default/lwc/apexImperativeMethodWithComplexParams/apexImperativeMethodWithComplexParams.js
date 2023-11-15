@@ -1,14 +1,13 @@
-import { LightningElement,track } from 'lwc';
+import { LightningElement } from 'lwc';
 import checkApexTypes from '@salesforce/apex/ApexTypesController.checkApexTypes';
 
-
 export default class ApexImperativeMethodWithComplexParams extends LightningElement {
-     stringValue = 'Some string';
-     numberValue = 50;
-     listItemValue = 4;
+    listItemValue = 4;
+    numberValue = 50;
+    stringValue = 'Some string';
+
     message;
     error;
-    
 
     handleStringChange(event) {
         this.stringValue = event.target.value;
@@ -22,23 +21,27 @@ export default class ApexImperativeMethodWithComplexParams extends LightningElem
         this.listItemValue = event.target.value;
     }
 
-   async handleButtonClick(){
+    async handleButtonClick() {
+        // Creating the object that represents the shape
+        // of the Apex wrapper class.
         let parameterObject = {
-            someString : this.stringValue,
-            someInteger : this.numberValue,
-            someList : []
+            someString: this.stringValue,
+            someInteger: this.numberValue,
+            someList: []
         };
-
-        for(let i=0; i<this.listItemValue;i++){
+        // Populating a list
+        for (let i = 0; i < this.listItemValue; i++) {
             parameterObject.someList.push(this.stringValue);
         }
 
+        // Calling the imperative Apex method with the JSON
+        // object as parameter.
         try {
-            this.message = await checkApexTypes({wrapper : parameterObject});
-            this.error = undefined
+            this.message = await checkApexTypes({ wrapper: parameterObject });
+            this.error = undefined;
         } catch (error) {
             this.message = undefined;
-            this.error = error
+            this.error = error;
         }
     }
 }
