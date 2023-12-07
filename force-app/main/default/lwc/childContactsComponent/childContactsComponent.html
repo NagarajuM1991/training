@@ -6,7 +6,7 @@
         <div class="slds-var-m-around_medium">
         <template if:true={contacts} for:each={contacts} for:item="con" for:index="index">
                <li key={con.Id}>
-                    {con.Name} &nbsp; {con.Phone} &nbsp; {con.Email}
+                    {con.Name} &nbsp; {con.Phone} &nbsp; {con.Email} &nbsp; {con.Account.Name}
                </li>
               
             </template>
